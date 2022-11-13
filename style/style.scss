@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    5deg,
+    hsl(240, 73%, 65%) 20%,
+    hsl(273, 75%, 66%) 60%
+  );
+  height: 100vh;
+  font-family: "Kumbh Sans", sans-serif;
+  margin: 0 auto;
+  position: relative;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 920px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .img_wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .common {
+      position: absolute;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .hidden_img {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .img_1 {
+        left: -110%;
+        top: 35%;
+        transform: translateY(-50%);
+        width: 900px;
+        height: 900px;
+        background-image: url(../images/bg-pattern-desktop.svg);
+      }
+      .img_2 {
+        left: -15%;
+        top: -2%;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/illustration-woman-online-desktop.svg);
+      }
+    }
+    .img_3 {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      top: 57%;
+      transform: translate(-50%, -50%);
+      width: 40%;
+      height: 40%;
+      background-image: url(../images/illustration-box-desktop.svg);
+    }
+  }
+  .list_wrap {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .list_tit {
+      margin-top: 0;
+    }
+    .list {
+      font-size: 14px;
+      width: 350px;
+      border-bottom: 1px solid hsl(240, 5%, 91%);
+
+      .list_btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        color: hsl(240, 6%, 50%);
+        &:hover {
+          color: hsl(14, 88%, 65%);
+          transition: all 0.3s;
+        }
+        &.active {
+          color: #000;
+          font-weight: 700;
+          img {
+            transform: rotate(180deg);
+          }
+          ~ .list_desc {
+            height: 100%;
+            visibility: visible;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .list_desc {
+        font-size: 12px;
+        visibility: hidden;
+        height: 0;
+        margin: 0;
+        line-height: 20px;
+        color: hsl(240, 6%, 50%);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .box {
+    width: 80%;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .img_wrap {
+      height: 20%;
+      .common {
+      }
+      .hidden_img {
+        overflow: visible;
+        .img_1 {
+          left: 50%;
+          top: -30%;
+          width: 400px;
+          height: 88%;
+          transform: translate(-50%, 50%);
+          background-image: url(../images/bg-pattern-mobile.svg);
+        }
+        .img_2 {
+          left: 50%;
+          top: -165%;
+          transform: translate(-50%, 50%);
+          width: 400px;
+          height: 150%;
+          background-image: url(../images/illustration-woman-online-mobile.svg);
+        }
+      }
+      .img_3 {
+        display: none;
+      }
+    }
+    .list_wrap {
+      height: 90%;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .list_tit {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .list {
+        width: 100%;
+        .list_btn {
+          &.active {
+            img {
+            }
+            ~ .list_desc {
+            }
+          }
+        }
+        .list_desc {
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 684px) {
+  .box {
+    width: 90%;
+  }
+}
